@@ -334,6 +334,20 @@ def create_es_publisher_sample_job():
 
 
 if __name__ == "__main__":
+    """
+    The **Quickstart** Databuilder runs a sequence of Jobs each of them generally following this pattern:
+    
+    1. Read a CSV with matching a given set of amundsen ... e.g. `../dataXXXX/sample_table_metadata.csv`
+    
+    2. The e.g. [TableMetadataXXXXXXXXXXXX] in https://github.com/jornh/amundsendatabuilder/blob/patch-1/databuilder/models/table_metadata.py
+       KEY TO UNDERSTANDING nodes/relations IS to look at EACH OF THESE MODEL CLASSES
+       
+       These jobs are all using SQL_Alchemy loading ... DIFFERENT XXXX - so essentially data loaded are already having the right shape for the `Loader` with the help of the model the job was initated with TO XxX
+    
+    This is all topped of with a few calls to refresh the ElasticSearch backend store supporting the [Amundsen Search Service]
+    
+    THIS IS DIFFERENT FROM REAL LOAD XXXX in that 
+    """
     # Uncomment next line to get INFO level logging
     # logging.basicConfig(level=logging.INFO)
 
