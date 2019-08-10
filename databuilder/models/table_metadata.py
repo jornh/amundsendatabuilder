@@ -90,6 +90,10 @@ class TableMetadata(Neo4jCsvSerializable):
     won't need to publish same nodes, relationships.
 
     This class can be used for both table and view metadata. If it is a View, is_view=True should be passed in.
+    
+    Overview if Nodes and relations this class can build:
+    
+    (Database)--has->(Cluster)
     """
     TABLE_NODE_LABEL = 'Table'
     TABLE_KEY_FORMAT = '{db}://{cluster}.{schema}/{tbl}'
