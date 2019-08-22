@@ -346,7 +346,16 @@ if __name__ == "__main__":
     
     This is all topped of with a few calls to refresh the ElasticSearch backend store supporting the [Amundsen Search Service]
     
-    THIS IS DIFFERENT FROM REAL LOAD XXXX in that 
+    THIS IS DIFFERENT FROM REAL LOAD XXXX in that here purpose built extractors (maybe followed by one or more transformers to form data conforming to model ... that 
+    
+    Trying to explain difference between Quickstart precooked extract from CSVs matching models 1:1 vs having purpose built Extractors that adapt to sources based on need, so e.g.:
+
+* SQL `INFORMATION.SCHEMA` shaped Metadata are read from database engine inbuilt tables
+* People info could be read from either LDAP or ActiveDirectory or a HR system (API, LDAP, CSV files etc.)
+* Table Usage would typically have to be collected and processed from SQL query logs (currently there is one - we need more, due to SQL dialects, it’s complex, or at least non-trivial due to incomplete queries where schema etc. does not have to be spelled out) 
+* Database table content statistics/data quality. Is “expensive” to process, Would typically - be done as part of ETL or offline processing through DQ tools - noting is built into or shared as part of Amundsen Databuilder right now
+* Data lineage, either through instrumenting ETL, for transformations through SQL in a data warehouse / by marking up, or processing by 3rd party tools. (See Dailymotion post, AIRFLOW LINEAGE, DAGSTER I/O "shapes" x term?)
+* New dataviz models/api - extraction/scrape from internal db  etc
     """
     # Uncomment next line to get INFO level logging
     # logging.basicConfig(level=logging.INFO)
